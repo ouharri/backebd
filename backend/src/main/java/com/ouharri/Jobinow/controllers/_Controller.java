@@ -26,6 +26,8 @@ import java.util.Optional;
  * @param <RequestType>  The request DTO type.
  * @param <ResponseType> The response DTO type.
  * @param <ServiceType>  The service type implementing _service.
+ *
+ * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  */
 @Slf4j
 @Getter
