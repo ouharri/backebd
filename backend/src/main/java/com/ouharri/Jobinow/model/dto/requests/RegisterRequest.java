@@ -3,7 +3,6 @@ package com.ouharri.Jobinow.model.dto.requests;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -14,7 +13,6 @@ import jakarta.validation.constraints.Size;
  * @version 1.0
  */
 public record RegisterRequest(
-        @NotNull(message = "First name must be present")
         @Size(min = 1, message = "First name cannot be empty")
         @Size(max = 30, message = "First name is too long")
         String firstname,
