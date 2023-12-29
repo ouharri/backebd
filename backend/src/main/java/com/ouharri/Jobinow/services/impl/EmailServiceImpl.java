@@ -19,8 +19,7 @@ import java.io.File;
 public class EmailServiceImpl {
 
     private final JavaMailSender emailSender;
-
-    private static final String FROM_ADDRESS = "noreply@baeldung.com";
+    private static final String FROM_ADDRESS = "noreply@jobinow.com";
 
     /**
      * Sends a simple email message.
