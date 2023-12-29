@@ -1,0 +1,50 @@
+server:
+  port: 8084
+
+logging:
+  level:
+    org.springframework.beans.factory: ERROR
+
+spring:
+  docker:
+    compose:
+      enabled: false
+      file: compose.yaml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Jobinow
+    username: postgres
+    password: Youcode@2023
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/db.changelog-master.yaml
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  quartz:
+    jdbc:
+      initialize-schema: always
+    job-store-type: jdbc
+    properties:
+      org:
+        quartz:
+          jobStore:
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+            isClustered: true
+          scheduler:
+            instanceId: AUTO
+          threadPool:
+            threadCount: 5
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
