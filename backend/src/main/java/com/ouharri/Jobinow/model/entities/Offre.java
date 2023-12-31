@@ -67,6 +67,15 @@ public class Offre extends AbstractEntity {
     private OffreStatus status;
 
     /**
+     * The list of profils associated with the job offer.
+     */
+    @ManyToMany(
+            targetEntity = Tag.class,
+            mappedBy = "offres"
+    )
+    private List<Profil> profils = new ArrayList<>();
+
+    /**
      * The company associated with the job offer.
      */
     @ManyToOne(
