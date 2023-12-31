@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Represents a company entity in the system.
  * This class includes information about a company such as its name, email, phone number, image URL,
- * address, recruiters, and manager.
+ * address, recruiters, manager, and associated job offers.
  *
  * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  * @version 1.0
@@ -78,4 +78,19 @@ public class Company extends AbstractEntity {
             fetch = FetchType.LAZY
     )
     private User manager;
+
+    /**
+     * The list of job offers associated with the company.
+     */
+    @OneToMany(
+            mappedBy = "company",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JoinTable(
+            name = "company_company",
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "offre_id")
+    )
+    private List<Offre> offres;
 }
