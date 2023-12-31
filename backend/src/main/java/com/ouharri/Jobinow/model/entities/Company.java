@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,38 +60,22 @@ public class Company extends AbstractEntity {
      * The list of recruiters associated with the company.
      */
     @OneToMany(
-            mappedBy = "recruitedCompanies",
-            orphanRemoval = true,
-            fetch = FetchType.LAZY
+            mappedBy = "recruitedCompanies"
     )
-    @JoinTable(
-            name = "recruiter_company",
-            joinColumns = @JoinColumn(name = "company_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<User> recruiters;
+    private List<User> recruiters = new ArrayList<>();
 
     /**
      * The manager associated with the company.
      */
-    @OneToOne(
-            orphanRemoval = true,
-            fetch = FetchType.LAZY
-    )
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "manager_id", referencedColumnName = "id")
     private User manager;
 
     /**
      * The list of job offers associated with the company.
      */
     @OneToMany(
-            mappedBy = "company",
-            orphanRemoval = true,
-            fetch = FetchType.LAZY
-    )
-    @JoinTable(
-            name = "company_company",
-            joinColumns = @JoinColumn(name = "company_id"),
-            inverseJoinColumns = @JoinColumn(name = "offre_id")
+            mappedBy = "company"
     )
     private List<Offre> offres;
 }
