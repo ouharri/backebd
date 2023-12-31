@@ -37,9 +37,6 @@ public class Tag extends AbstractEntity {
     /**
      * The list of job offers associated with the tag.
      */
-    @ManyToMany(
-            targetEntity = Offre.class,
-            mappedBy = "tags"
-    )
+    @ManyToMany
     private List<Offre> offres = new ArrayList<>();
 }
