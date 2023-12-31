@@ -18,6 +18,9 @@ import java.util.List;
 
 /**
  * Represents a user entity in the system.
+ * This class includes information about a user such as their password, image, phone number, email,
+ * first name, last name, gender, address, role, associated tokens, recruited companies, managed company,
+ * associated job offer, and related functionalities for Spring Security.
  *
  * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  * @version 2.0
@@ -95,6 +98,33 @@ public class User extends AbstractEntity implements UserDetails {
      */
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+
+    /**
+     * Companies where the user is a recruiter.
+     */
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            targetEntity = Company.class
+    )
+    private Company recruitedCompanies;
+
+    /**
+     * Company where the user is a manager.
+     */
+    @OneToOne(
+            targetEntity = Company.class,
+            mappedBy = "manager"
+    )
+    private Company managedCompany;
+
+    /**
+     * Job offer where the user is a recruiter.
+     */
+    @OneToOne(
+            targetEntity = Offre.class,
+            mappedBy = "recruiter"
+    )
+    private Offre offre;
 
     /**
      * Return the authorities granted to the user.
