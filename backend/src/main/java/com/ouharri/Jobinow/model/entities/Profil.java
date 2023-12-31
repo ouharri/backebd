@@ -37,9 +37,6 @@ public class Profil extends AbstractEntity {
     /**
      * The list of job offers associated with the profile.
      */
-    @ManyToMany(
-            targetEntity = Offre.class,
-            mappedBy = "profils"
-    )
+    @ManyToMany
     private List<Offre> offres = new ArrayList<>();
 }
