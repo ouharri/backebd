@@ -32,7 +32,6 @@ public class Profil extends AbstractEntity {
     /**
      * The description of the profile.
      */
-    @NotBlank(message = "Profile description cannot be blank")
     private String description;
 
     /**
