@@ -18,22 +18,22 @@ public enum Permission {
     /**
      * Permission for reading recruiter-related information.
      */
-    recruiter_READ("admin:read"),
+    RECRUITER_READ("admin:read"),
 
     /**
      * Permission for updating recruiter-related information.
      */
-    recruiter_UPDATE("admin:update"),
+    RECRUITER_UPDATE("admin:update"),
 
     /**
      * Permission for creating new recruiter-related information.
      */
-    recruiter_CREATE("admin:create"),
+    RECRUITER_CREATE("admin:create"),
 
     /**
      * Permission for deleting recruiter-related information.
      */
-    recruiter_DELETE("admin:delete"),
+    RECRUITER_DELETE("admin:delete"),
 
     /**
      * Permission for reading manager-related information.
