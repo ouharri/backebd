@@ -69,37 +69,27 @@ public class Offre extends AbstractEntity {
     /**
      * The list of profils associated with the job offer.
      */
-    @ManyToMany(
-            targetEntity = Tag.class,
-            mappedBy = "offres"
-    )
+    @ManyToMany
     private List<Profil> profils = new ArrayList<>();
 
     /**
      * The company associated with the job offer.
      */
-    @ManyToOne(
-            fetch = FetchType.LAZY,
-            targetEntity = Company.class
-    )
-    @NotNull(message = "Company cannot be null")
+    @ManyToOne
+    @JoinTable(name = "company_offres")
     private Company company;
 
     /**
      * The recruiter associated with the job offer.
      */
-    @OneToOne(
-            mappedBy = "offre",
-            targetEntity = User.class
-    )
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "recruiter_id", referencedColumnName = "id")
+    @NotNull(message = "recruiter cannot be null")
     private User recruiter;
 
     /**
      * The list of tags associated with the job offer.
      */
-    @ManyToMany(
-            targetEntity = Tag.class,
-            mappedBy = "offres"
-    )
+    @ManyToMany
     private List<Tag> tags = new ArrayList<>();
 }
