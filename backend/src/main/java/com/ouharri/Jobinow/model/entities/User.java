@@ -106,24 +106,19 @@ public class User extends AbstractEntity implements UserDetails {
             fetch = FetchType.LAZY,
             targetEntity = Company.class
     )
+    @JoinColumn(name = "company_id")
     private Company recruitedCompanies;
 
     /**
      * Company where the user is a manager.
      */
-    @OneToOne(
-            targetEntity = Company.class,
-            mappedBy = "manager"
-    )
+    @OneToOne(mappedBy = "manager")
     private Company managedCompany;
 
     /**
      * Job offer where the user is a recruiter.
      */
-    @OneToOne(
-            targetEntity = Offre.class,
-            mappedBy = "recruiter"
-    )
+    @OneToOne(mappedBy = "recruiter")
     private Offre offre;
 
     /**
