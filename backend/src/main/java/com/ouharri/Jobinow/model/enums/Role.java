@@ -9,24 +9,41 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Enumeration representing different roles in the system.
+ * Each role is associated with a set of permissions, defining the level of access for users with that role.
+ * This enum provides a convenient way to manage and assign roles and permissions throughout the application.
+ *
+ * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
+ * @version 1.0
+ */
 @Getter
 @RequiredArgsConstructor
 public enum Role {
 
+    /**
+     * Basic user role with minimal permissions.
+     */
     USER(Collections.emptySet()),
 
-    ADMINISTRATOR(
+    /**
+     * Role for recruiters with specific permissions for reading, creating, updating,
+     * and deleting recruiter-related information.
+     */
+    RECRUITER(
             Set.of(
-                    Permission.ADMIN_READ,
-                    Permission.ADMIN_UPDATE,
-                    Permission.ADMIN_DELETE,
-                    Permission.ADMIN_CREATE,
-                    Permission.MANAGER_READ,
-                    Permission.MANAGER_UPDATE,
-                    Permission.MANAGER_DELETE,
-                    Permission.MANAGER_CREATE
+                    Permission.RECRUITER_READ,
+                    Permission.RECRUITER_CREATE,
+                    Permission.RECRUITER_UPDATE,
+                    Permission.RECRUITER_DELETE
             )
     ),
+
+    /**
+     * F
+     * Role for managers with specific permissions for reading, creating, updating,
+     * and deleting manager-related information.
+     */
     MANAGER(
             Set.of(
                     Permission.MANAGER_READ,
@@ -35,12 +52,17 @@ public enum Role {
                     Permission.MANAGER_CREATE
             )
     ),
+
+    /**
+     * Role for super_administrators with extensive permissions across recruiter,
+     * manager, and super_administrator activities.
+     */
     SUPER_ADMINISTRATOR(
             Set.of(
-                    Permission.ADMIN_READ,
-                    Permission.ADMIN_UPDATE,
-                    Permission.ADMIN_DELETE,
-                    Permission.ADMIN_CREATE,
+                    Permission.RECRUITER_READ,
+                    Permission.RECRUITER_CREATE,
+                    Permission.RECRUITER_UPDATE,
+                    Permission.RECRUITER_DELETE,
                     Permission.MANAGER_READ,
                     Permission.MANAGER_UPDATE,
                     Permission.MANAGER_DELETE,
@@ -51,12 +73,16 @@ public enum Role {
                     Permission.SUPER_ADMINISTRATOR_CREATE
             )
     ),
+
+    /**
+     * Role for responsible rayon with extensive permissions similar to super_administrators.
+     */
     RESPONSABLE_RAYON(
             Set.of(
-                    Permission.ADMIN_READ,
-                    Permission.ADMIN_UPDATE,
-                    Permission.ADMIN_DELETE,
-                    Permission.ADMIN_CREATE,
+                    Permission.RECRUITER_READ,
+                    Permission.RECRUITER_CREATE,
+                    Permission.RECRUITER_UPDATE,
+                    Permission.RECRUITER_DELETE,
                     Permission.MANAGER_READ,
                     Permission.MANAGER_UPDATE,
                     Permission.MANAGER_DELETE,
@@ -70,6 +96,11 @@ public enum Role {
 
     private final Set<Permission> permissions;
 
+    /**
+     * Get the authorities associated with the role.
+     *
+     * @return List of authorities including the role and associated permissions.
+     */
     public List<SimpleGrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
