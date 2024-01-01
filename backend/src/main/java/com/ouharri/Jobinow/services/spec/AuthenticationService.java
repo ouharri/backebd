@@ -2,7 +2,7 @@ package com.ouharri.Jobinow.services.spec;
 
 import com.ouharri.Jobinow.model.dto.requests.AuthenticationRequest;
 import com.ouharri.Jobinow.model.dto.requests.RegisterRequest;
-import com.ouharri.Jobinow.model.dto.responces.AuthenticationResponse;
+import com.ouharri.Jobinow.model.dto.responses.AuthenticationResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
