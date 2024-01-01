@@ -1,7 +1,7 @@
 package com.ouharri.Jobinow.model.mapper;
 
 import com.ouharri.Jobinow.model.dto.requests._Request;
-import com.ouharri.Jobinow.model.dto.responces._Response;
+import com.ouharri.Jobinow.model.dto.responses._Response;
 import com.ouharri.Jobinow.model.entities._Entity;
 
 import java.sql.Timestamp;
