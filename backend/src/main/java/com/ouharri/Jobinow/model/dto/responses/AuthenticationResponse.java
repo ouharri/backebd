@@ -1,4 +1,4 @@
-package com.ouharri.Jobinow.model.dto.responces;
+package com.ouharri.Jobinow.model.dto.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
