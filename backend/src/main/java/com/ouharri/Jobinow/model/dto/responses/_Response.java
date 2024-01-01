@@ -1,4 +1,4 @@
-package com.ouharri.Jobinow.model.dto.responces;
+package com.ouharri.Jobinow.model.dto.responses;
 
 import java.io.Serializable;
 
