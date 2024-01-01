@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ouharri.Jobinow.exceptions.ResourceNotFoundException;
 import com.ouharri.Jobinow.model.dto.requests.AuthenticationRequest;
 import com.ouharri.Jobinow.model.dto.requests.RegisterRequest;
-import com.ouharri.Jobinow.model.dto.responces.AuthenticationResponse;
+import com.ouharri.Jobinow.model.dto.responses.AuthenticationResponse;
 import com.ouharri.Jobinow.model.entities.Token;
 import com.ouharri.Jobinow.model.entities.User;
 import com.ouharri.Jobinow.model.enums.Role;
