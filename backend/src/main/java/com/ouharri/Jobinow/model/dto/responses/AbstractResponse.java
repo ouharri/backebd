@@ -1,4 +1,4 @@
-package com.ouharri.Jobinow.model.dto.responces;
+package com.ouharri.Jobinow.model.dto.responses;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ouharri.Jobinow.model.entities.AbstractEntity;
@@ -12,9 +12,13 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 /**
- * DTO for {@link AbstractEntity}
+ * AbstractResponse serves as a base class for response DTOs.
+ * It includes common fields such as id, createdAt, updatedAt, and version.
+ * This class is intended to be extended by specific response DTOs in the system.
+ *
  * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  */
+
 @Getter
 @Setter
 @SuperBuilder
