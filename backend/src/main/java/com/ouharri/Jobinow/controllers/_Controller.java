@@ -2,7 +2,7 @@ package com.ouharri.Jobinow.controllers;
 
 import com.ouharri.Jobinow.exceptions.ResourceNotCreatedException;
 import com.ouharri.Jobinow.model.dto.requests._Request;
-import com.ouharri.Jobinow.model.dto.responces._Response;
+import com.ouharri.Jobinow.model.dto.responses._Response;
 import com.ouharri.Jobinow.services.spec._Service;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,6 @@ import java.util.Optional;
  * @param <RequestType>  The request DTO type.
  * @param <ResponseType> The response DTO type.
  * @param <ServiceType>  The service type implementing _service.
- *
  * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  */
 @Slf4j
