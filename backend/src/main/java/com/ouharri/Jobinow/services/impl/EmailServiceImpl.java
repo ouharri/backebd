@@ -1,8 +1,10 @@
 package com.ouharri.Jobinow.services.impl;
 
+import com.ouharri.Jobinow.services.spec.EmailService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -14,9 +16,10 @@ import java.io.File;
 /**
  * Service implementation for sending emails using Spring's JavaMailSender.
  */
+@Slf4j
 @Service
-@AllArgsConstructor
-public class EmailServiceImpl {
+@RequiredArgsConstructor
+public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
     private static final String FROM_ADDRESS = "noreply@jobinow.com";
