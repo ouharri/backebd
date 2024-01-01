@@ -2,7 +2,7 @@ package com.ouharri.Jobinow.services.impl;
 
 import com.ouharri.Jobinow.exceptions.ResourceNotCreatedException;
 import com.ouharri.Jobinow.model.dto.requests._Request;
-import com.ouharri.Jobinow.model.dto.responces._Response;
+import com.ouharri.Jobinow.model.dto.responses._Response;
 import com.ouharri.Jobinow.model.entities._Entity;
 import com.ouharri.Jobinow.model.mapper._Mapper;
 import com.ouharri.Jobinow.services.spec._Service;
