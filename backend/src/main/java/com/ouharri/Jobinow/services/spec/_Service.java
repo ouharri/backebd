@@ -1,7 +1,7 @@
 package com.ouharri.Jobinow.services.spec;
 
 import com.ouharri.Jobinow.model.dto.requests._Request;
-import com.ouharri.Jobinow.model.dto.responces._Response;
+import com.ouharri.Jobinow.model.dto.responses._Response;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
