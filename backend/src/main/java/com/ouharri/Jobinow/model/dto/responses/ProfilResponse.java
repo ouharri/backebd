@@ -2,6 +2,7 @@ package com.ouharri.Jobinow.model.dto.responses;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ouharri.Jobinow.model.entities.Offre;
+import com.ouharri.Jobinow.model.entities.Profil;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,13 +11,11 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 /**
- * DTO for representing a response related to {@link Offre}.
- * This DTO includes information such as the job title, description, location, degree, salary, status,
- * associated profiles, associated company, associated tags, and common response fields.
+ * DTO for representing a response related to {@link Profil}.
+ * This DTO includes information such as the profile title, description, and common response fields.
  *
  * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  */
-
 @Getter
 @Setter
 @SuperBuilder
