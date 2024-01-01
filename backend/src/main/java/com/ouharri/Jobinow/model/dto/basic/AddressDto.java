@@ -1,14 +1,21 @@
-package com.ouharri.Jobinow.model.dto.requests;
+package com.ouharri.Jobinow.model.dto.basic;
 
+import com.ouharri.Jobinow.model.dto.requests._Request;
 import com.ouharri.Jobinow.model.entities.Address;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 /**
- * DTO for {@link Address}
+ * DTO for representing address information.
+ * This DTO is used for transferring address-related data
+ * to and from the system.
+ * It includes details such as region, district, city, street, building number,
+ * apartment number, and postal code.
+ *
+ * @author <a href="mailto:ouharri.outman@gmail.com">ouharri</a>
  */
-public record AddressRequest(
+public record AddressDto(
         @Size(message = "Region name is too long", max = 30)
         String region,
 
