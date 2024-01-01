@@ -3,6 +3,9 @@ package com.ouharri.Jobinow.model.mapper;
 import com.ouharri.Jobinow.model.dto.requests._Request;
 import com.ouharri.Jobinow.model.dto.responses._Response;
 import com.ouharri.Jobinow.model.entities._Entity;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.sql.Timestamp;
 
@@ -39,6 +42,30 @@ public interface _Mapper<ID, Req extends _Request, Res extends _Response, Entity
      * @return Converted response DTO.
      */
     Res toResponse(Entity entity);
+
+    /**
+     * Applies partial updates from the request DTO to the entity, ignoring null values.
+     *
+     * @param request Request DTO containing partial updates.
+     * @param entity  Entity to be updated.
+     * @return Updated entity.
+     */
+    @BeanMapping(
+            nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
+    )
+    Entity applyPartialUpdates(Req request, @MappingTarget Entity entity);
+
+    /**
+     * Applies partial updates from the response DTO to the entity, ignoring null values.
+     *
+     * @param response Response DTO containing partial updates.
+     * @param entity   Entity to be updated.
+     * @return Updated entity.
+     */
+    @BeanMapping(
+            nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
+    )
+    Entity applyPartialUpdates(Res response, @MappingTarget Entity entity);
 
     /**
      * Maps a string representing the creation timestamp to a {@link Timestamp} object.
