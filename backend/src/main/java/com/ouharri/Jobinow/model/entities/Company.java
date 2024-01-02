@@ -1,10 +1,12 @@
 package com.ouharri.Jobinow.model.entities;
 
+import com.ouharri.Jobinow.model.enums.CompanyStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.URL;
 
 import java.util.ArrayList;
@@ -20,8 +22,8 @@ import java.util.List;
  */
 @Getter
 @Setter
-@Builder
 @Entity
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Company extends AbstractEntity {
@@ -55,6 +57,13 @@ public class Company extends AbstractEntity {
      */
     @Embedded
     private Address address = new Address();
+
+    private CompanyStatus status = CompanyStatus.PENDING;
+
+    @OneToMany(
+            mappedBy = "company"
+    )
+    private List<VerificationCode> verificationCodes = new ArrayList<>();
 
     /**
      * The list of recruiters associated with the company.
