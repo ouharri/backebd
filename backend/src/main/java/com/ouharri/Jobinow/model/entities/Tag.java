@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,8 @@ import java.util.List;
  */
 @Getter
 @Setter
-@Builder
 @Entity
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tag extends AbstractEntity {
