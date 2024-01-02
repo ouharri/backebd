@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -22,8 +23,8 @@ import java.util.List;
  */
 @Getter
 @Setter
-@Builder
 @Entity
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Offre extends AbstractEntity {
