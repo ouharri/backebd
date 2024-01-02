@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.URL;
 
 /**
@@ -21,7 +20,6 @@ import org.hibernate.validator.constraints.URL;
  */
 @Getter
 @Setter
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
